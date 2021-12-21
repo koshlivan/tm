@@ -6,10 +6,10 @@ $page="";
 <nav class="menu">
             <a href="index.php?page=1">Main Page</a>
     <?php if(isset($_SESSION["user"]["id"])){ echo
-            '<a  href="index.php?page=2">Edit</a>';}
+            '<a  href="index.php?page=edit">Edit</a>';}
     else{
-        echo '<a href="index.php?page=3">Login</a>';
-        echo '<a href="index.php?page=4">Register</a>';
+        echo '<a href="index.php?page=login">Login</a>';
+        echo '<a href="index.php?page=register">Register</a>';
     }
     ?>
 

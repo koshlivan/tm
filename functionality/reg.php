@@ -11,16 +11,18 @@ $userEmail=$_POST['inpEmail'];
 if($_POST['inpPass']===$_POST['inpRePass']){
     $userPassword=md5($_POST['inpPass']);
     $sql = "INSERT INTO users (login, password, email) VALUES ('$userLogin', '$userPassword', '$userEmail') ";
-    $res=$dbh->query($sql);
-    //$loginId=$dbh->lastInsertId();
-
-    $_SESSION["user"]["email"]=$userEmail;
-
-    $_GET["$page"]="3";
-    header('Location: ../index.php?page=3');
+    if($res=$dbh->query($sql)){
+        $_GET["$page"]="login";
+        header('Location: ../index.php?page=login');
+    }
+    else{
+        $_SESSION['message']='Такой логин уже занят';
+        $_GET["$page"]="register";
+        header('Location: ../index.php?page=register');
+    }
 }
 else{
     $_SESSION['message']='Пароли не совпадают';
-    $_GET["$page"]="4";
-    header('Location: ../index.php?page=4');
+    $_GET["$page"]="register";
+    header('Location: ../index.php?page=register');
 }

@@ -2,6 +2,7 @@
 session_start();
 $dbh = require_once 'db_connection.php';
 
+
 $userName=$_POST["inpName"];
 $userPhone=$_POST["inpPhone"];
 $userEmail=$_POST["inpMail"];
@@ -17,9 +18,7 @@ $userSkill=$_POST["inpSkill"];
 
 $path='usr_photo/'.time().$_FILES["inpPhoto"]["name"];
 move_uploaded_file($_FILES['inpPhoto']['tmp_name'], "../".$path);
-//if(move_uploaded_file($_FILES['inpPhoto']['tmp_name'], "../".$path)){echo "uploaded";}
-//else{echo "<h1> &#128405;</h1>";}
-//die();
+
 
 $id=$_SESSION["user"]["id"];
 

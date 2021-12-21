@@ -37,12 +37,13 @@ body {
 .wraper{
     display: flex;
     box-shadow: 3px 3px 4px #bfbfbf;
+    min-height: 80vh;
 }
 
 .side-info {
     background-color: #d8c2a6;
     display: flex;
-    min-width: 25%;
+    min-width: 30%;
     margin: 0 1rem;
     flex-direction: column;
     align-content: center;
@@ -50,6 +51,7 @@ body {
 
 .pr-photo {
     width: 90%;
+    min-height: 9rem;
     border-radius: 50%;
     margin: 1rem auto;
 }
@@ -81,29 +83,36 @@ body {
     margin: 0 auto;
 }
 
-.side-info>.p-info {
+.p-info {
+    min-width: 100%;
+    padding-left: 2rem;
     margin: 15px auto;
     margin-bottom: 4rem;
 }
 
-.side-info>.ul-info {
+.side-info .ul-info {
     margin: 15px auto 4rem 1rem;
     
 }
 
-.main-info {
+.mmain-info {
     display: flex;
     flex-direction: column;
-    width: 75%;
     float: right;
+    align-content: stretch;
+    min-width: 65%;
+    margin-left: 0;
 }
 
-.head {
-    margin: 0 1rem;
+.heading {
+    min-width: 95%;
+    max-width: 98%;
+    margin: 0 auto;
     height: 15rem;
     background-color: #323026;
     color: white;
     text-transform: capitalize;
+    text-align: center;
     display: flex;
     flex-flow: column;
     align-content: center;
@@ -218,8 +227,10 @@ body {
 #log_form label, #reg_form label {
     margin: 0 auto;
     display: inline-block;
-font-size: 2rem;
+font-size: 1.5rem;
 font-weight: 600;
+   white-space: nowrap;
+    text-align: center;
 }
 
 #btnSubm {
@@ -256,4 +267,5 @@ font-weight: 600;
 }
 .field {
     min-height: 96px;
+
 }

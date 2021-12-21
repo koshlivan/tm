@@ -26,19 +26,17 @@ else{
         global $page;
         switch($page)
         {
-            case "2": include "pages/edit.php"; break;
-            case "3": include "pages/login.php"; break;
-            case "4": include "pages/register.php"; break;
-            default:
-            {
-                if($isLogged){
-                    include "pages/user.php";
-                }
-                else {
-                    include "pages/main.php";
-                }
+            case "edit":
+                include "pages/edit.php";
                 break;
-            }
+            case "login":
+                include "pages/login.php";
+                break;
+            case "register":
+                include "pages/register.php";
+                break;
+            default:
+                include "pages/main.php";
         }
         
         ?>

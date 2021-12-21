@@ -1,7 +1,7 @@
 <?php
 session_start();
 global $page;
-$userInfo=require_once 'functionality/fillinfo.php';
+$userInfo= require_once 'functionality/fill_info.php';
 ?>
 <div class="wraper">
 

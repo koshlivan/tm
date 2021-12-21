@@ -6,12 +6,12 @@
                 <div class="field-set">
                     <div class="row align-items-center field">
                     <label for="inpLog" class="col-3">Login</label>
-                    <input type="text" name="inpLog" class="col-7">
+                    <input type="text" name="inpLog" class="col-7" required>
                     </div>
                 </div>
                     <div class="row align-items-center field">
                     <label for="inpPass" class="col-3">Pass</label>
-                    <input type="password" name="inpPass" class="col-7">
+                    <input type="password" name="inpPass" class="col-7" required>
                     </div>
 
                 <div>
