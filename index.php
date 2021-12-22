@@ -7,6 +7,7 @@ if($_SESSION['user']['info']){
 else{
     $isLogged=false;
 }
+$page=$_GET['page'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,11 @@ else{
 <body>
     <div class="contain">
         <?php
-        include 'pages/menu.php';
+        if($isLogged || $_GET['page']=='admin' || $_GET['page']=='new' || $_GET['page']=='login' || $_GET['page']=='register'){
+            include 'pages/menu.php';
+        }else{
+            //echo 'see this';
+        }
 
         global $page;
         switch($page)
@@ -29,9 +34,11 @@ else{
             case "edit":
                 include "pages/edit.php";
                 break;
+            case "admin":
             case "login":
                 include "pages/login.php";
                 break;
+            case "new":
             case "register":
                 include "pages/register.php";
                 break;

@@ -17,10 +17,9 @@ $page="";
             '<a href="functionality/logout.php">Logout</a>';}
     ?>
 </nav>
-<?php
 
+<?php
 if(isset($_GET["page"])){
     $page=$_GET["page"];
 }
-
 ?>

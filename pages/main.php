@@ -1,21 +1,26 @@
 
     <?php
         $userInfo= require_once 'functionality/fill_info.php';
-        if($userInfo['photo']==''){
-            $usrPhot=null;
-        }
-        else{
-            $usrPhot=null;
-        }
 
-               $photo = $usrPhot ?? "profile.png";
+            //everyone's cv
+            //if($userInfo['photo']==''){
+            //$usrPhot=null;
+            //}
+            //else{
+            //$usrPhot=$userInfo['photo'];
+            //}
+                //everyone's cv
+                //$photo = $userInfo['photo'] ?? "profile.png";
+
+                //my cv
+               $photo = $userInfo['photo'] ?? "profile.png";
                $phoneNumber = $userInfo['phone'] ?? "+38(555)55-55-55";
                $email = $userInfo['email'] ??"myemail@mail.com";
                $adres = $userInfo['address'] ?? "Country, City";
-               $education = $userInfo['degree'] ?? "Software developer";
-               $educFacil = $userInfo['university'] ??"Academy";
-               $educPeriod = $userInfo['period'] ??"2000-2022";
-               $skills = $userInfo['skill'] ?? array("php", "html", "css", "js");
+               $education = explode(',', $userInfo['degree']) ?? "Software developer";
+               $educFacil = explode(',',$userInfo['university']) ??"Academy";
+               $educPeriod = explode(',',$userInfo['period']) ??"2000-2022";
+               $skills = explode(",", $userInfo['skill']) ?? array("php", "html", "css", "js");
                $fio = $userInfo['name']??"Name Surname";
                $linked = $userInfo['linked']??"LinkedIn";
                $vacancy = "web developer";
@@ -30,16 +35,31 @@
             <div class="side-info">
                 <img class="pr-photo" src="<?=$photo?>" alt="Profile">
                 <h3 class="lblCont">Contact</h3>
-                <p class="p-info"><?=$phoneNumber?><br>
-                <?=$email?><br>
-                <?=$adres?><br>
-                <?=$linked?>
-                </p>
+                <div>
+                    <p class="p-info"><?=$phoneNumber?><br>
+                    <?=$email?><br>
+                    <?=$adres?><br>
+                    <?=$linked?>
+                    </p>
+                </div>
                 <h3 class="lblCont">Education</h3>
-                <p class="p-info"><?=$education?><br>
-                <?=$educFacil?><br>
-                <?=$educPeriod?>
-                </p>
+                <div>
+                <?php
+                if(is_array($education)){
+                    for($i=0; $i<count($education);$i++)
+                echo '<p class="p-info">'.$education[$i].'<br>'.
+                $educFacil[$i].'<br>'.
+                $educPeriod[$i].
+                '</p>';
+                }
+                else{
+                   echo '<p class="p-info">'.$education.'<br>'.
+                       $educFacil.'<br>'.
+                       $educPeriod.
+                       '</p>';
+                }
+                ?>
+                </div>
                 <h3 class="lblCont">Skills</h3>
                 <?php
                 if(is_array($skills)){

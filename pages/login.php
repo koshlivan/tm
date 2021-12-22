@@ -1,8 +1,8 @@
 
-        <div>
+        <div class="wraper">
             <div class="reg-wind">
                 <form id="log_form" action="functionality/auth.php" method="post">
-                    <input type="hidden" name="frmLogin" >
+                    <input type="hidden" name="FormLogin" >
                 <div class="field-set">
                     <div class="row align-items-center field">
                     <label for="inpLog" class="col-3">Login</label>

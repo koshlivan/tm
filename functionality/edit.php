@@ -1,9 +1,13 @@
 <?php
 session_start();
+if($_SESSION['user']==null){
+    header("Location: ../index.php?page=1");
+}
 $dbh = require_once 'db_connection.php';
 
 
-$userName=$_POST["inpName"];
+
+$userName=validField($_POST["inpName"]);
 $userPhone=$_POST["inpPhone"];
 $userEmail=$_POST["inpMail"];
 $userAddres=$_POST["inpAddr"];
@@ -19,13 +23,17 @@ $userSkill=$_POST["inpSkill"];
 $path='usr_photo/'.time().$_FILES["inpPhoto"]["name"];
 move_uploaded_file($_FILES['inpPhoto']['tmp_name'], "../".$path);
 
-
-$id=$_SESSION["user"]["id"];
+if($_FILES["inpPhoto"]["size"]>0){
+    $profilePhoto="photo='$path',";
+}
+else{
+    $profilePhoto="";
+}
 
 
     $sql = "UPDATE users 
-    SET photo='$path', 
-        name='$userName', 
+    SET ". $profilePhoto
+        ."name='$userName', 
         phone='$userPhone', 
         email='$userEmail', 
         address='$userAddres', 
@@ -36,12 +44,17 @@ $id=$_SESSION["user"]["id"];
         profile='$userProfile', 
         experiance='$userExperiance', 
         skill='$userSkill'
-    WHERE id='$id'
+    WHERE login='ivan'
         ";
     $dbh->query($sql);
     header("Location: ../index.php?page=1");
 
-
+function validField($input):string{
+    $value=trim($input);
+    $value=stripslashes($input);
+    $value=htmlspecialchars($input);
+    return $value;
+}
 
 
 

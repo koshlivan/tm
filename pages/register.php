@@ -1,7 +1,8 @@
 
-        <div>
+        <div class="wraper">
             <div class="reg-wind">
-                <form id="reg_form" action="functionality/reg.php" method="post">
+                <form id="reg_form" action="functionality/auth.php" method="post">
+                    <input type="hidden" name="RegisterForm">
                     <div class="field-set">
                         <div class="row align-items-center field">
                             <label for="inpLog" class="col-5">Login</label>

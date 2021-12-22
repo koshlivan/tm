@@ -83,11 +83,17 @@ body {
     margin: 0 auto;
 }
 
-.p-info {
+.p-info:nth-child(1n) {
     min-width: 100%;
     padding-left: 2rem;
-    margin: 15px auto;
-    margin-bottom: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem ;
+}
+.p-info:nth-child(2n) {
+    min-width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem ;
 }
 
 .side-info .ul-info {

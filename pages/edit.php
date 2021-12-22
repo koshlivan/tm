@@ -1,13 +1,20 @@
 <?php
-require_once 'functionality/fill_info.php';
-$photopath=$usr['photo'];
+session_start();
+if($_SESSION['user']==null){
+    global $page;
+    $_GET["$page"]="1";
+    header('Location: index.php?page=1');
+
+}
+$usr=require_once 'functionality/fill_info.php';
+//$photopath=$usr['photo'];
 ?>
 <div>
         <form class="wraper" action="functionality/edit.php" method="POST" enctype="multipart/form-data">
             <div class="side-info">
                 <div class="for-photo">
                     <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-                    <input type="file" id="ld_photo" placeholder="File input here" name="inpPhoto" value="<?=$photopath?>">
+                    <input type="file" id="ld_photo" placeholder="File input here" name="inpPhoto">
                 </div>
                 <h3 class="lblCont">Contact</h3>
                 <input type="text" class="inp-edit" placeholder="Phone" name="inpPhone" value="<?=$usr['phone']?>">
@@ -63,6 +70,7 @@ $photopath=$usr['photo'];
                                cols="20"
                                name="inpExper"
                     ><?=$usr['experiance']?></textarea>
+                    <input type="hidden" name="EditForm">
                     <input type="submit" value="Save">
                 </div> 
             </div>
